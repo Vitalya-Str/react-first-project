@@ -1,5 +1,4 @@
 
-
 .app-wrapper{
     display: grid;
     width: 1200px;
@@ -9,23 +8,11 @@
     "n c";
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
-    gap: 10px;
+    grid-gap: 10px;
 }
 
-.header{
-    grid-area: h;
-}
-.header img {
-    width: 50px;
-}
 
-.nav {
-    grid-area: n;
-}
 
-.content{
-    grid-area: c;
-}
-.img__content{
-    width: 1200px;
-}
+
+
+

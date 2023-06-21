@@ -1,7 +1,7 @@
-
+import s from './Profile.module.css'
 const Profile = ()=>{
-    return <div className='content'>
-        <div> <img className='img__content' src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg'/>
+    return <div className={s.content}>
+        <div> <img  src='https://s3.amazonaws.com/images.seroundtable.com/google-css-images-1515761601.jpg'/>
         </div>
         <div>ava + description</div>
         <div> My posts</div>
