@@ -1,17 +1,12 @@
 import s from './Profile.module.css'
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = () => {
     return (
         <div>
-            <div>
-                <img src='https://s3.amazonaws.com/images.seroundtable.com/google-css-images-1515761601.jpg'/>
-            </div>
-
-            <div className={s.item}>ava + description</div>
-
+            <ProfileInfo/>
             <MyPosts/>
-
         </div>
     )
 }

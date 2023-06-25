@@ -5,14 +5,19 @@
 
 }
 
+.dialogsItem a {
+   text-decoration: none;
+}
+
 .dialogsItem {
 
 }
 
+
 .dialog {
     color: blue;
-}
 
+}
 .dialog .active {
     color: black;
 }

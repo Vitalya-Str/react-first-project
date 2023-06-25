@@ -3,10 +3,21 @@ import Post from "./Post/Post";
 
 const MyPosts = () => {
     return (
-        <div>
-            <Post message='Hello'/>
-            <Post message='Hello World!'/>
-        </div>)
+        <div className={s.item}>
+            <div>
+                <div>
+                    <textarea></textarea>
+                </div>
+                <div>
+                    <button>Input</button>
+                </div>
+            </div>
+            <div className={s.posts}>
+                <Post message='Hello'/>
+                <Post message='Hello World!'/>
+            </div>
+        </div>
+    )
 }
 
 export default MyPosts
