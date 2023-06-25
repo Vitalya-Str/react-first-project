@@ -5,10 +5,10 @@
 }
 
 .item a {
-    color: coral;
     text-decoration: none;
+    color: dodgerblue;
 }
 
 .item a.active {
-    color: green;
+    color: red;
 }
