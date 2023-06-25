@@ -6,27 +6,21 @@
 }
 
 .dialogsItem a {
-   text-decoration: none;
-}
-
-.dialogsItem {
-
+    text-decoration: none;
+    color: blue;
 }
 
 
 .dialog {
-    color: blue;
 
 }
+
 .dialog .active {
     color: black;
 }
 
-.massages {
 
-}
-
-.massage {
+.message {
     color: blue;
 
 }
