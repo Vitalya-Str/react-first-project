@@ -5,11 +5,12 @@ const MyPosts = () => {
     return (
         <div className={s.item}>
             <div>
+                <h3>My posts</h3>
                 <div>
                     <textarea></textarea>
                 </div>
                 <div>
-                    <button>Input</button>
+                    <button>Add post</button>
                 </div>
             </div>
             <div className={s.posts}>
