@@ -1,1 +1,27 @@
 
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+
+}
+
+.dialogsItem {
+
+}
+
+.dialog {
+    color: blue;
+}
+
+.dialog .active {
+    color: black;
+}
+
+.massages {
+
+}
+
+.massage {
+    color: blue;
+
+}
