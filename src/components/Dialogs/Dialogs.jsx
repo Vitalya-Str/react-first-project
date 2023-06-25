@@ -4,8 +4,7 @@ const Dialogs = (props) => {
     return (
         <div>
             Dialogs
-        </div>
-    )
+        </div>)
 }
 
 export default Dialogs;
