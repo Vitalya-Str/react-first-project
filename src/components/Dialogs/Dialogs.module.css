@@ -1,13 +1,13 @@
 
 .dialogs {
-    display: grid;
-    grid-template-columns: 2fr 10fr;
+   display: grid;
+   grid-template-columns: 2fr 10fr;
 
 }
 
 .dialogsItem a {
-    text-decoration: none;
-    color: blue;
+   text-decoration: none;
+   color: blue;
 }
 
 
@@ -16,11 +16,11 @@
 }
 
 .dialog .active {
-    color: black;
+   color: black;
 }
 
 
 .message {
-    color: blue;
+   color: blue;
 
 }
