@@ -3,7 +3,7 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
 
-   const PostElement = props.posts.map(p => <Post message={p.message} likeCounts={p.likeCounts}/>)
+   const postElement = props.posts.map(p => <Post message={p.message} likeCounts={p.likeCounts}/>)
 
    return (
       <div className={s.item}>
@@ -17,7 +17,7 @@ const MyPosts = (props) => {
             </div>
          </div>
          <div className={s.posts}>
-            {PostElement}
+            {postElement}
          </div>
       </div>
    )
