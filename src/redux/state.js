@@ -1,9 +1,13 @@
+
+import {renderEntireTree} from "../render";
+
+
 const state =
    {
       profilePage: {
          posts: [
             {id: 1, message: 'Hello', likeCounts: '1'},
-            {id: 1, message: 'Hello World', likeCounts: '22'}
+            {id: 2, message: 'Hello World', likeCounts: '22'}
          ],
       },
 
@@ -21,8 +25,24 @@ const state =
             {id: '4', name: 'Vitalya'}
          ],
       },
+      sidebar: {
+         friends: [
+            {name: 'Julia'},
+            {name: 'Artem'},
+            {name: 'Vitalya'}
+         ]
+      },
 
 
    }
+
+export const addPosts = (newMessage) => {
+   const post = {
+      id: 3, message: newMessage, likeCounts: '0'
+   }
+
+   state.profilePage.posts.push(post)
+   renderEntireTree(state);
+}
 
 export default state;

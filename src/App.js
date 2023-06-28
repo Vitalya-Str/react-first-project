@@ -6,6 +6,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import Setting from "./components/Setting/Setting";
 import Music from "./components/Music/Music";
+import Sidebar from "./components/Sidebar/Sidebar";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 
@@ -14,20 +15,23 @@ const App = (props) => {
       <BrowserRouter>
          <div className='app-wrapper'>
             <Header/>
-            <Navbar/>
+            <Navbar friends={props.state.sidebar.friends}/>
             <div className='app-wrapper-content'>
                <Routes>
                   <Route path='/dialogs'
-                         element={<Dialogs dialogs={props.state.dialogsPage.dialogs} messages={props.state.dialogsPage.messages}/>}/>
-                  <Route path='/profile' element={<Profile posts={props.state.profilePage.posts}/>}/>
+                         element={<Dialogs dialogs={props.state.dialogsPage.dialogs}
+                                           messages={props.state.dialogsPage.messages}/>}/>
+                  <Route path='/profile' element={<Profile posts={props.state.profilePage.posts} addPosts={props.addPosts}/>}/>
                   <Route path='/news' element={<News/>}/>
                   <Route path='/music' element={<Music/>}/>
                   <Route path='/setting' element={<Setting/>}/>
+                  <Route path='/sidebar' element={<Sidebar/>}/>
                </Routes>
 
             </div>
          </div>
-      </BrowserRouter>);
+      </BrowserRouter>
+   );
 }
 
 export default App;
