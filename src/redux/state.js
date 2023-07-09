@@ -1,3 +1,6 @@
+const add_Posts = 'ADD-POSTS';
+const up_Date_Post_Change = 'UPDATE-POST-CHANGE';
+
 const store = {
 
    _state: {
@@ -44,7 +47,7 @@ const store = {
    },
 
    dispatch(action) {
-      if (action.type === 'ADD-POSTS') {
+      if (action.type === add_Posts) {
          const post = {
             id: 3,
             message: this._state.profilePage.newPostText,
@@ -54,12 +57,26 @@ const store = {
          this._state.profilePage.posts.push(post)
          this._state.profilePage.newPostText = ''
          store._callSubscriber(this._state);
-      } else if (action.type === 'UPDATE-POST-CHANGE') {
+      } else if (action.type === up_Date_Post_Change) {
          this._state.profilePage.newPostText = action.newText;
          store._callSubscriber(this._state);
       }
 
    }
+}
+
+export const addPostsActionCreator = () => {
+
+   return {
+      type: add_Posts
+   };
+}
+export const updatePostChangeActionCreator = (text) => {
+
+   return {
+      type: up_Date_Post_Change,
+      newText: text
+   };
 }
 
 export default store;
