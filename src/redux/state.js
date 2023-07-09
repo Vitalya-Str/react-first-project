@@ -1,10 +1,6 @@
-let renderEntireTree = () => {
-   console.log('State change');
-}
+const store = {
 
-
-const state =
-   {
+   _state: {
       profilePage: {
          posts: [
             {id: 1, message: 'Hello', likeCounts: '1'},
@@ -36,26 +32,34 @@ const state =
       },
 
 
+   },
+   _callSubscriber() {
+      console.log('State change');
+   },
+   getState() {
+      return this._state
+   },
+   subscribe(observer) {
+      store._callSubscriber = observer;
+   },
+
+   dispatch(action) {
+      if (action.type === 'ADD-POSTS') {
+         const post = {
+            id: 3,
+            message: this._state.profilePage.newPostText,
+            likeCounts: '0'
+         }
+
+         this._state.profilePage.posts.push(post)
+         this._state.profilePage.newPostText = ''
+         store._callSubscriber(this._state);
+      } else if (action.type === 'UPDATE-POST-CHANGE') {
+         this._state.profilePage.newPostText = action.newText;
+         store._callSubscriber(this._state);
+      }
+
    }
-
-export const addPosts = () => {
-   const post = {
-      id: 3,
-      message: state.profilePage.newPostText,
-      likeCounts: '0'
-   }
-
-   state.profilePage.posts.push(post)
-   state.profilePage.newPostText = ''
-   renderEntireTree(state);
-}
-export const updatePostChange = (newText) => {
-   state.profilePage.newPostText = newText;
-   renderEntireTree(state);
 }
 
-export const subscribe = (observer) => {
-   renderEntireTree = observer;
-}
-
-export default state;
+export default store;
