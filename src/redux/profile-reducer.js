@@ -1,7 +1,14 @@
 const add_Posts = 'ADD-POSTS';
 const update_Post_Change = 'UPDATE-POST-CHANGE';
 
-const profileReducer = (state, action) => {
+const initialState = {
+   posts: [
+      {id: 1, message: 'Hello', likeCounts: '1'},
+      {id: 2, message: 'Hello World', likeCounts: '22'}
+   ],
+   newPostText: '',
+}
+const profileReducer = (state = initialState, action) => {
 
    if (action.type === add_Posts) {
       const post = {
