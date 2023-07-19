@@ -5,12 +5,12 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
 const Profile = (props) => {
-   debugger
+   const state = props.store.getState().profilePage;
 
    return (
       <div>
          <ProfileInfo/>
-         <MyPosts posts={props.profilePage.posts} newPostText={props.newPostText}
+         <MyPosts posts={state.posts} newPostText={state.newPostText}
                   dispatch={props.dispatch}/>
       </div>
    )

@@ -23,6 +23,7 @@ const profileReducer = (state = initialState, action) => {
       state.newPostText = action.newText;
    }
    return state
+
 }
 
 export const addPostsActionCreator = () => ({type: add_Posts})

@@ -8,7 +8,7 @@ import {addPostsActionCreator, updatePostChangeActionCreator} from "../../../red
 const MyPosts = (props) => {
 
 
-   const postElement = props.store.posts?.map(p => <Post message={p.message} likeCounts={p.likeCounts}/>)
+   const postElement = props.posts.map(p => <Post message={p.message} likeCounts={p.likeCounts}/>)
 
    const newPostElement = React.createRef();
 
