@@ -4,18 +4,21 @@ import './index.css';
 import ReactDOM from "react-dom/client";
 import React from "react";
 import App from "./App";
+import {Provider} from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export const renderEntireTree = (state) => {
    root.render(
       <React.StrictMode>
-         <App state={state} store={store} dispatch={store.dispatch.bind(store)}/>
+         <Provider store={store}>
+            <App/>
+         </Provider>
       </React.StrictMode>
    );
 }
 
 renderEntireTree(store.getState());
-store.subscribe(()=>{
+store.subscribe(() => {
    const state = store.getState();
    renderEntireTree(state);
 });
