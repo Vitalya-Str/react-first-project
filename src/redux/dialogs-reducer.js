@@ -1,4 +1,3 @@
-
 const add_Message = 'ADD_MESSAGE';
 const Update_Message_Change = 'UPDATE-MESSAGE-CHANGE';
 
@@ -17,18 +16,20 @@ const initialState = {
    ],
    newMessageText: '',
 }
-const dialogsReducer = (state = initialState, action)=>{
+const dialogsReducer = (state = initialState, action) => {
+
    if (action.type === add_Message) {
-      const stateCopy = {...state}
-      stateCopy.messages = [...state.messages]
-      const newMessage = stateCopy.newMessageText;
-      stateCopy.newMessageText = "";
-      stateCopy.messages.push({id:5, message: newMessage})
-      return stateCopy
+      const newMessage = state.newMessageText;
+      return {
+         ...state,
+         newMessageText: "",
+         messages: [...state.messages, {id: 5, message: newMessage}]
+      }
    } else if (action.type === Update_Message_Change) {
-      const stateCopy = {...state}
-      stateCopy.newMessageText = action.newTextMessage;
-      return stateCopy
+      return {
+         ...state,
+         newMessageText: action.newTextMessage,
+      }
    }
    return state
 }
