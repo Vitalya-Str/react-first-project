@@ -13,8 +13,8 @@ const profileReducer = (state = initialState, action) => {
    if (action.type === add_Posts) {
       return {
          ...state,
-         newPostText: '',
-         posts: [...state.posts, {id: 3, message: state.newPostText, likeCounts: '0'}]
+         posts: [...state.posts, {id: 3, message: state.newPostText, likeCounts: '0'}],
+         newPostText: ''
 
       }
    } else if (action.type === update_Post_Change) {
