@@ -3,33 +3,7 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 
 const initialState = {
-   users: [
-      {
-         id: 1,
-         photoUrl: 'https://cs14.pikabu.ru/post_img/2023/02/13/8/1676295806139337963.jpg',
-         followed: false,
-         fullName: 'Vitalya',
-         status: 'status...',
-         location: {city: 'Moscow', country: 'Russia'}
-      },
-      {
-         id: 2,
-         photoUrl: 'https://cs14.pikabu.ru/post_img/2023/02/13/8/1676295806139337963.jpg',
-         followed: true,
-         fullName: 'Julia',
-         status: 'status 2...',
-         location: {city: 'Varshava', country: 'Poland'}
-      },
-      {
-         id: 3,
-         photoUrl: 'https://cs14.pikabu.ru/post_img/2023/02/13/8/1676295806139337963.jpg',
-         followed: false,
-         fullName: 'Artem',
-         status: 'status 3',
-         location: {city: 'Petropavlovsk', country: 'Kazakhstan'}
-      },
-
-   ],
+   users: [],
 }
 const usersReducer = (state = initialState, action) => {
 
@@ -56,8 +30,7 @@ const usersReducer = (state = initialState, action) => {
       }
    } else if (action.type === SET_USERS) {
       return {
-         ...state,
-         users: [...state.users, ...action.users]
+         ...state.users, users: action.users
       }
    }
    return state
