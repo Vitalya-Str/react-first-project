@@ -10,8 +10,24 @@ class Users extends React.Component {
          this.props.setUsers(response.data.items)
       })
    }
+
    render() {
-      return (<div>
+      const totalPages = this.props.totalUsersCount / this.props.pageSize;
+
+      let pages = [];
+      for (let  i = 1; i <= totalPages; i++){
+         pages.push(i)
+      }
+
+      console.log(this.props)
+      return <div>
+         <div>
+            { pages.map(p =>{
+              return <span  className={ true && s.fontWeight}>{p}</span>
+
+            })}
+         </div>
+
          {
             this.props.users.map(u => <div key={u.id}>
              <span>
@@ -19,8 +35,12 @@ class Users extends React.Component {
                    <img className={s.photo} src={u.photos.small != null ? u.photos.small : userPhoto}/>
                 </div>
                 <div>
-                   {u.followed ? <button onClick={() => {this.props.unfollow(u.id)}}>Unfollow</button>
-                      : <button onClick={() => {this.props.follow(u.id)}}>Follow</button>}
+                   {u.followed ? <button onClick={() => {
+                         this.props.unfollow(u.id)
+                      }}>Unfollow</button>
+                      : <button onClick={() => {
+                         this.props.follow(u.id)
+                      }}>Follow</button>}
                 </div>
              </span>
                <span>
@@ -33,11 +53,10 @@ class Users extends React.Component {
             </span>
             </div>)
          }
-      </div>)
+      </div>
 
    }
 }
-
 
 
 export default Users
