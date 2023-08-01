@@ -6,6 +6,11 @@
 .header img {
     width: 50px;
     padding: 10px;
+}
 
-
+.headerLogin {
+    float: right;
+}
+.headerLogin a {
+    color: antiquewhite;
 }
