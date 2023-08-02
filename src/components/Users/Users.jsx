@@ -2,6 +2,8 @@ import s from "./Users.module.css"
 import userPhoto from '../../images/userPhoto.png'
 import React from "react";
 import {NavLink} from "react-router-dom";
+import axios from "axios";
+import {usersAPI} from "../../api/api";
 
 
 const Users = (props) => {
@@ -25,16 +27,24 @@ const Users = (props) => {
          props.users.map(u => <div key={u.id}>
              <span>
                 <div key={u.id}>
-                   <NavLink to={'/profile/' + u.id }>
+                   <NavLink to={'/profile/' + u.id}>
                    <img className={s.photo} src={u.photos.small != null ? u.photos.small : userPhoto}/>
                    </NavLink>
                 </div>
                 <div>
                    {u.followed ? <button onClick={() => {
-                         props.unfollow(u.id)
+                         usersAPI.delete(u.id).then(data => {
+                            if (data.resultCode === 0) {
+                               props.unfollow(u.id)
+                            }
+                         })
                       }}>Unfollow</button>
                       : <button onClick={() => {
-                         props.follow(u.id)
+                          usersAPI.post(u.id).then(data => {
+                            if (data.resultCode === 0) {
+                               props.follow(u.id)
+                            }
+                         })
                       }}>Follow</button>}
                 </div>
              </span>
