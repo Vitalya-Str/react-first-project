@@ -1,3 +1,5 @@
+import {usersAPI} from "../api/api";
+
 const add_Posts = 'ADD-POSTS';
 const update_Post_Change = 'UPDATE-POST-CHANGE';
 const SET_TOTAL_PROFILE = 'SET_TOTAL_PROFILE';
@@ -39,4 +41,12 @@ export const updatePostChangeCreator = (text) => ({
       type: update_Post_Change,
       newText: text
 })
+
+export const getProfile = (userId)=>{
+   return (dispatch)=>{
+      usersAPI.getProfile(userId).then(response => {
+         dispatch( setTotalProfile(response.data))
+      })
+   }
+}
 export default profileReducer;

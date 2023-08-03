@@ -16,28 +16,20 @@ export const usersAPI = {
 
    },
 
-   post(userID) {
-      return instance.post(`follow/${userID}`, {}).then(response => {
-         return response.data
-      })
+   follow(userID) {
+      return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userID}`)
    },
 
-   delete(userID){
-      return instance.delete(`follow/${userID}`).then(response => {
-         return response.data
-      })
+   unfollow(userID){
+      return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userID}`)
    },
 
    getProfile(userId){
-      return  instance.get(`profile/` + userId).then(response =>{
-         return response.data
-      })
+      return  instance.get(`profile/` + userId)
    },
 
    getHeader(){
-      return instance.get(`auth/me`).then(response=>{
-         return response.data
-      })
+      return instance.get(`auth/me`)
    }
 }
 
