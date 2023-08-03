@@ -1,13 +1,11 @@
 import React from "react";
 import {connect} from "react-redux";
-import {getProfile, setTotalProfile} from "../../redux/profile-reducer";
+import {getProfile} from "../../redux/profile-reducer";
 import Profile from "./Profile";
 import {useLocation, useNavigate, useParams} from "react-router-dom";
 
 
 class ProfileContainer extends React.Component {
-
-
    componentDidMount() {
 
       let userId = this.props.router.params.userId;
@@ -47,4 +45,4 @@ function withRouter(Component) {
    return ComponentWithRouterProp;
 }
 
-export default connect(mapStateToProps, {setTotalProfile, getProfile})(withRouter(ProfileContainer))
+export default connect(mapStateToProps, { getProfile})(withRouter(ProfileContainer))
