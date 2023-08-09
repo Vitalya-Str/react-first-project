@@ -1,5 +1,4 @@
 import './App.css';
-import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
 import Setting from "./components/Setting/Setting";
@@ -10,6 +9,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 
 const App = () => {
@@ -26,6 +26,8 @@ const App = () => {
 
                   <Route path='/profile/:userId?'
                          element={<ProfileContainer />}/>
+                  <Route path='/login'
+                         element={<Login />}/>
                   <Route path='/users/'
                          element={<UsersContainer />}/>
                   <Route path='/news' element={<News/>}/>
