@@ -16,7 +16,7 @@ const Users = (props) => {
    return <div>
       <div>
          {pages.map(p => {
-            return <span className={props.currentPage === p ? s.fontWeight : s.font} onClick={() => {
+            return <span key={p.id} className={props.currentPage === p ? s.fontWeight : s.font} onClick={() => {
                props.setClickPage(p)
             }}>{p}</span>
          })}
