@@ -1,5 +1,4 @@
 import React from "react";
-import {setStatus} from "../../../redux/profile-reducer";
 
 export class ProfileStatus extends React.Component {
    state = {
