@@ -1,32 +1,22 @@
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 import React from "react";
-import {addPostsActionCreator, updatePostChangeCreator} from "../../../redux/profile-reducer";
+import {Field, reduxForm} from "redux-form";
 
 
 const MyPosts = (props) => {
 
    const postElement = props.posts.map(p => <Post message={p.message} key={p.id} likeCounts={p.likeCounts}/>)
 
-   const newPostElement = React.createRef();
-
-   const onAddPost = () => {
-      props.addPostsActionCreator()
+   const onAddPost = (values) => {
+      props.addPostsActionCreator(values.newPostElement)
    };
-   const onPostChange = () => {
-      const text = newPostElement.current.value;
-      props.updatePostChangeCreator(text)
-   }
+
    return (
       <div className={s.item}>
          <div>
             <h3>My posts</h3>
-            <div>
-               <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
-            </div>
-            <div>
-               <button onClick={onAddPost}>Add post</button>
-            </div>
+            <AddPostsRedux onSubmit={onAddPost}/>
          </div>
          <div className={s.posts}>
             {postElement}
@@ -34,5 +24,20 @@ const MyPosts = (props) => {
       </div>
    )
 }
+
+const AddPostsForm = (props) => {
+   return (
+      <form onSubmit={props.handleSubmit}>
+         <div>
+            <Field component={'textarea'} name='newPostElement' placeholder='input text'/>
+         </div>
+         <div>
+            <button>Add post</button>
+         </div>
+      </form>
+   )
+}
+
+const AddPostsRedux = reduxForm({form: 'AddMessagePosts'})(AddPostsForm)
 
 export default MyPosts

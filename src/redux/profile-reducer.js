@@ -1,7 +1,5 @@
 import {profileAPI, usersAPI} from "../api/api";
-
 const add_Posts = 'ADD-POSTS';
-const update_Post_Change = 'UPDATE-POST-CHANGE';
 const SET_TOTAL_PROFILE = 'SET_TOTAL_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
@@ -10,7 +8,6 @@ const initialState = {
       {id: 1, message: 'Hello', likeCounts: '1'},
       {id: 2, message: 'Hello World', likeCounts: '22'}
    ],
-   newPostText: '',
    profile: null,
    status: "",
 
@@ -20,13 +17,7 @@ const profileReducer = (state = initialState, action) => {
    if (action.type === add_Posts) {
       return {
          ...state,
-         posts: [...state.posts, {id: 3, message: state.newPostText, likeCounts: '0'}],
-         newPostText: ''
-
-      }
-   } else if (action.type === update_Post_Change) {
-      return {
-         ...state, newPostText: action.newText,
+         posts: [...state.posts, {id: 3, message: action.newPostElement, likeCounts: '0'}]
       }
    } else if (action.type === SET_TOTAL_PROFILE) {
       return {
@@ -40,13 +31,10 @@ const profileReducer = (state = initialState, action) => {
    return state
 }
 
-export const addPostsActionCreator = () => ({type: add_Posts})
+export const addPostsActionCreator = (newPostElement) => ({type: add_Posts, newPostElement})
 export const setTotalProfile = (profile) => ({type: SET_TOTAL_PROFILE, profile})
 export const setStatus = (status) => ({type: SET_STATUS, status})
-export const updatePostChangeCreator = (text) => ({
-   type: update_Post_Change,
-   newText: text
-})
+
 
 export const getProfile = (userId) => {
    return (dispatch) => {
