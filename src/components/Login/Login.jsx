@@ -1,18 +1,21 @@
 import {Field, reduxForm} from "redux-form";
+import {Input} from "../FormControl/FormControl";
+import {maxLengthCreator, required} from "../../utils/validators/validators";
 
 
+const maxLength15 = maxLengthCreator(15)
 const LoginForm = (props) => {
 
    return (
       <form onSubmit={props.handleSubmit}>
          <div>
-            <Field name={'Login'} component={'input'} placeholder={'Login'}/>
+            <Field name={'Login'} component={Input} validate={[required, maxLength15]} placeholder={'Login'}/>
          </div>
          <div>
-            <Field name={'Password'} component={'input'} placeholder={'password'}/>
+            <Field name={'Password'} component={Input} validate={[required, maxLength15]} placeholder={'password'}/>
          </div>
          <div>
-            <Field name={'rememberMe'} component={'input'} type={'checkbox'}/> remember me
+            <Field name={'rememberMe'} component={Input} type={'checkbox'}/> remember me
          </div>
          <div>
             <button>Login on</button>
