@@ -6,29 +6,19 @@ import {
 import React from "react";
 import Users from "./Users";
 import Preloader from "../../Preloader/Preloader";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
 
 class UsersAPIContainer extends React.Component {
    componentDidMount() {
       this.props.getUsers(this.props.currentPage, this.props.pageSize)
-      // this.props.setIsFetching(true)
-      // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-      //    this.props.setIsFetching(false)
-      //    this.props.setUsers(data.items)
-      //    this.props.setTotalUsersCount(data.totalCount)
-      // })
+
    }
 
    setClickPage = (numberPage) => {
       this.props.getUsers(numberPage, this.props.pageSize)
       this.props.setCurrentPage(numberPage)
-      // this.props.setIsFetching(true)
-      // usersAPI.getUsers(numberPage, this.props.pageSize).then(data => {
-      //    this.props.setIsFetching(false)
-      //    this.props.setUsers(data.items)
-      // })
+
    }
 
 
@@ -62,39 +52,6 @@ const mapStateToProps = (state) => {
    }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//    return {
-//       followAccess: (userId) => {
-//          dispatch(followAC(userId))
-//       },
-//       unfollowAccess: (userId) => {
-//          dispatch(unfollowAC(userId))
-//       },
-//       setUsers: (users) => {
-//          dispatch(setUsersAC(users))
-//       },
-//       setCurrentPage: (number) => {
-//          dispatch(setCurrentPageAC(number))
-//       },
-//       setTotalUsersCount: (totalCount) => {
-//          dispatch(setTotalUsersCountAC(totalCount))
-//       },
-//       setIsFetching: (isFetching) => {
-//          dispatch(setIsFetchingAC(isFetching))
-//       }
-//
-//    }
-// }
-
-
-//  export default ( connect(mapStateToProps, {
-//    follow,
-//    unfollow,
-//    setCurrentPage,
-//    toggleFollowProgress,
-//    getUsers
-// })(UsersAPIContainer))
-
 export default compose(
    connect(mapStateToProps, {
       follow,
@@ -103,5 +60,4 @@ export default compose(
       toggleFollowProgress,
       getUsers
    }),
-   withAuthRedirect,
 )(UsersAPIContainer)
