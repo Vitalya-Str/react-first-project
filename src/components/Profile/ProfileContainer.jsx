@@ -15,9 +15,7 @@ class ProfileContainer extends React.Component {
          userId = this.props.authorizedUserId;
       }
       this.props.getProfile(userId)
-      // usersAPI.getProfile(userId).then(response => {
-      //    this.props.setTotalProfile(response.data)
-      // })
+
       this.props.getStatus(userId)
 
    }

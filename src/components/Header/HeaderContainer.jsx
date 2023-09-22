@@ -8,12 +8,6 @@ import {compose} from "redux";
 class HeaderContainer extends React.Component {
    componentDidMount() {
       this.props.getHeader()
-      // usersAPI.getHeader().then(data => {
-      //    if (data.resultCode === 0) {
-      //       const {id, email, login} = data.data
-      //       this.props.setAuthUserData(id, email, login)
-      //    }
-      // })
    }
 
    render() {
@@ -31,5 +25,5 @@ const mapStateToProps = (state) => ({
 // export default connect(mapStateToProps, {setAuthUserData, getHeader})(HeaderContainer)
 
 export default compose(
-   connect(mapStateToProps, {setAuthUserData, getHeader,logout}),
+   connect(mapStateToProps, {setAuthUserData, getHeader, logout}),
 )(HeaderContainer)
