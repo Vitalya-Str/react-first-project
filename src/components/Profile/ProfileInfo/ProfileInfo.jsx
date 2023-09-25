@@ -1,7 +1,7 @@
 import s from './ProfileInfo.module.css'
 import Preloader from "../../../Preloader/Preloader";
 import ava from "../../../images/userPhoto.png"
-import {ProfileStatus} from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
 const ProfileInfo = (props) => {
@@ -12,7 +12,7 @@ const ProfileInfo = (props) => {
       <div>
          <img src={props.profile.photos.large ? props.profile.photos.large: ava } width={200} height={200}  alt='images'/>
 
-         <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+         <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
       </div>
    )
 }
