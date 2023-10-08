@@ -3,7 +3,7 @@ import Post from "./Post/Post";
 import React from "react";
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
-import {Textarea} from "../../FormControl/FormControl";
+import {Textarea} from "../../common/FormControl/FormControl";
 
 
 const MyPosts = (props) => {

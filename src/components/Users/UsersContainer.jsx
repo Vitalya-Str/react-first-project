@@ -12,12 +12,14 @@ import {getCurrentPage, getIsFetching, getPageSize, getTotalUsersCount, getUsers
 
 class UsersAPIContainer extends React.Component {
    componentDidMount() {
-      this.props.getUsers(this.props.currentPage, this.props.pageSize)
+      const {currentPage, pageSize} = this.props;
+      this.props.getUsers(currentPage, pageSize)
 
    }
 
    setClickPage = (numberPage) => {
-      this.props.getUsers(numberPage, this.props.pageSize)
+      const {pageSize} = this.props;
+      this.props.getUsers(numberPage, pageSize)
       this.props.setCurrentPage(numberPage)
 
    }
