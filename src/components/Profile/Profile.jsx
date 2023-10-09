@@ -1,16 +1,16 @@
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import {memo} from "react";
 
 
-
-const Profile = (props) => {
+const Profile = memo((props) => {
 
    return (
       <div>
          <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
-         <MyPostsContainer />
+         <MyPostsContainer/>
       </div>
    )
-}
+})
 
 export default Profile

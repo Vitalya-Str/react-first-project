@@ -3,12 +3,11 @@ import Paginator from "../common/Paginator/Paginator";
 import User from "./User";
 
 
-const Users = (props) => {
-
+const Users = ({totalUsersCount, pageSize, setClickPage, currentPage, ...props}) => {
    return <div>
 
-      <Paginator totalUsersCount={props.totalUsersCount} pageSize={props.pageSize} setClickPage={props.setClickPage}
-                 currentPage={props.currentPage}/>
+      <Paginator totalUsersCount={totalUsersCount} pageSize={pageSize} setClickPage={setClickPage}
+                 currentPage={currentPage}/>
 
       <div>
          {

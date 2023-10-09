@@ -26,6 +26,7 @@ class UsersAPIContainer extends React.Component {
 
 
    render() {
+
       return <>
          {this.props.isFetching ? <Preloader/> : null}
 
@@ -40,6 +41,7 @@ class UsersAPIContainer extends React.Component {
                 followProgress={this.props.followProgress}
 
          />
+
       </>
    }
 }
