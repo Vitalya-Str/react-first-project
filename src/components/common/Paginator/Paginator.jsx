@@ -1,39 +1,22 @@
 import s from "./Paginator.module.css"
-import React, {useState} from "react";
+import React from "react";
 
 
-const Paginator = ({totalItemCount, pageSize, currentPage, setClickPage, portionSize = 10,}) => {
+const Paginator = ({totalUsersCount, pageSize, currentPage, setClickPage}) => {
 
-   const totalPages = Math.ceil(totalItemCount / pageSize);
+   const totalPages = Math.ceil(totalUsersCount / pageSize);
 
    let pages = [];
    for (let i = 1; i <= totalPages; i++) {
       pages.push(i)
    }
 
-   const portionCount = Math.ceil(totalPages / portionSize);
-   const [portionNumber, setPortionNumber] = useState(1);
-   const leftPageNumberButton = (portionNumber - 1) * portionSize + 1;
-   const rightPageNumberButton = portionNumber * portionSize;
-
-
-   return <div className={s.paginator}>
-      {
-         portionNumber > 1 && <button onClick={() => {
-            setPortionNumber(portionNumber - 1)
-         }}>PREV</button>
-      }
-      {pages.filter((p) => p >= leftPageNumberButton && p <= rightPageNumberButton)
-         .map(p => {
-            return <span key={p.id} className={currentPage === p ? s.pageNumber : s.font} onClick={() => {
-               setClickPage(p)
-            }}>{p}</span>
-         })}
-      {
-         portionCount > portionNumber && <button onClick={() => {
-            setPortionNumber(portionNumber + 1)
-         }}>NEXT</button>
-      }
+   return <div>
+      {pages.map(p => {
+         return <span key={p.id} className={currentPage === p ? s.fontWeight : s.font} onClick={() => {
+            setClickPage(p)
+         }}>{p}</span>
+      })}
    </div>
 }
 

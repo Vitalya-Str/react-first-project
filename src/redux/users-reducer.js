@@ -10,7 +10,7 @@ const FOLLOW_PROGRESS = 'FOLLOW_PROGRESS'
 
 const initialState = {
    users: [],
-   pageSize: 10,
+   pageSize: 5,
    totalUsersCount: 0,
    currentPage: 1,
    isFetching: false,
