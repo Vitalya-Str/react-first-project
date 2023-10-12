@@ -17,14 +17,16 @@ import {initializedApp} from "./redux/app-reducer";
 import Preloader from "./Preloader/Preloader";
 
 const DialogsContainer = lazy(()=> delayForDemo(import('./components/Dialogs/DialogsContainer')));
-const ProfileContainer = lazy(()=> import('./components/Profile/ProfileContainer'));
+// const ProfileContainer = lazy(()=> import('./components/Profile/ProfileContainer'));
 
 function delayForDemo(promise) {
    return new Promise(resolve => {
-      setTimeout(resolve, 500000);
+      setTimeout(resolve, 2000);
    }).then(() => promise);
 
 }
+
+const Loading = () => <h1>loading....</h1>
 
 class App extends Component {
    componentDidMount() {
@@ -46,11 +48,8 @@ class App extends Component {
 
                   <Routes>
                      <Route path='/dialogs'
-                            element={ <Suspense fallBack={()=>{
-                               console.log("sdasdasd")
-                               return <h1 className={"LOL"} > ...Loading </h1>
-                            }}>
-                        <DialogsContainer/>
+                            element={<Suspense fallback={<h1>loading....</h1>}>
+                              <DialogsContainer/>
                             </Suspense>}/>
 
                      {/*<Route path='/profile/:userId?'*/}
