@@ -6,16 +6,25 @@ import Music from "./components/Music/Music";
 import Sidebar from "./components/Sidebar/Sidebar";
 import UsersContainer from "./components/Users/UsersContainer"
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
+//import ProfileContainer from "./components/Profile/ProfileContainer";
+//import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
-import {Component} from "react";
+import {Component, lazy, Suspense} from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializedApp} from "./redux/app-reducer";
 import Preloader from "./Preloader/Preloader";
 
+const DialogsContainer = lazy(()=> delayForDemo(import('./components/Dialogs/DialogsContainer')));
+const ProfileContainer = lazy(()=> import('./components/Profile/ProfileContainer'));
+
+function delayForDemo(promise) {
+   return new Promise(resolve => {
+      setTimeout(resolve, 500000);
+   }).then(() => promise);
+
+}
 
 class App extends Component {
    componentDidMount() {
@@ -24,7 +33,7 @@ class App extends Component {
 
    render() {
 
-      if(!this.props.initialized){
+      if (!this.props.initialized) {
          return <Preloader/>
       }
 
@@ -34,12 +43,18 @@ class App extends Component {
                <HeaderContainer/>
                <Navbar/>
                <div className='app-wrapper-content'>
+
                   <Routes>
                      <Route path='/dialogs'
-                            element={<DialogsContainer/>}/>
+                            element={ <Suspense fallBack={()=>{
+                               console.log("sdasdasd")
+                               return <h1 className={"LOL"} > ...Loading </h1>
+                            }}>
+                        <DialogsContainer/>
+                            </Suspense>}/>
 
-                     <Route path='/profile/:userId?'
-                            element={<ProfileContainer/>}/>
+                     {/*<Route path='/profile/:userId?'*/}
+                     {/*       element={<ProfileContainer/>}/>*/}
                      <Route path='/login'
                             element={<Login/>}/>
                      <Route path='/users/'
@@ -49,6 +64,7 @@ class App extends Component {
                      <Route path='/setting' element={<Setting/>}/>
                      <Route path='/sidebar' element={<Sidebar/>}/>
                   </Routes>
+
 
                </div>
             </div>
