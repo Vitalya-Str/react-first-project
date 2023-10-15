@@ -4,3 +4,12 @@
     padding: 10px;
 }
 
+.mainPhoto {
+    max-width: 200px;
+    margin: 10px;
+}
+
+.input {
+    display: block;
+    margin: 10px;
+}
