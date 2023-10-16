@@ -21,7 +21,7 @@ const ProfileContainer = lazy(() => delayForDemo(import('./components/Profile/Pr
 
 function delayForDemo(promise) {
    return new Promise(resolve => {
-      setTimeout(resolve, 1000);
+      setTimeout(resolve, 2000);
    }).then(() => promise);
 
 }
@@ -45,12 +45,12 @@ class App extends Component {
 
                   <Routes>
                      <Route path='/dialogs'
-                            element={<Suspense fallback={<Preloader/>}>
+                            element={<Suspense fallback={<h1>loading....</h1>}>
                                <DialogsContainer/>
                             </Suspense>}/>
 
                      <Route path='/profile/:userId?'
-                            element={<Suspense fallback={<Preloader/>}>
+                            element={<Suspense fallback={<h1>loading....</h1>}>
                                <ProfileContainer/>
                             </Suspense>}/>
                      <Route path='/login'
