@@ -4,3 +4,11 @@
     padding: 10px;
 }
 
+.avatar {
+    display: block;
+    margin: 10px;
+}
+
+.sizeAva {
+    max-width: 200px;
+}
