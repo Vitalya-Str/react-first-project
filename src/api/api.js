@@ -29,7 +29,7 @@ export const usersAPI = {
 
    getProfile(userId) {
 
-      console.warn('Obsolete method. Please userAPI object')
+      console && console.warn('Obsolete method. Please userAPI object')
 
       return profileAPI.getProfile(userId)
    },
@@ -55,6 +55,9 @@ export const profileAPI = {
             "Content-Type": "multipart/form-data"
          }
       })
+   },
+   saveProfile(profile) {
+      return instance.put(`/profile`, profile)
    }
 }
 
