@@ -17,8 +17,12 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
       setEditMode(true)
    }
    const onSubmit = (formData) => {
-      saveProfile(formData)
-      setEditMode(false)
+      saveProfile(formData).then(
+         () => {
+            setEditMode(false)
+         }
+      )
+
    }
 
    const onMainPhoto = (e) => {
@@ -44,6 +48,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
 
 
 const ProfileData = ({profile, onClickEditMode, isOwner}) => {
+
    return (<div>
       {isOwner && <div>
          <button onClick={onClickEditMode}>Edit</button>
